@@ -1,0 +1,20 @@
+name: Deploy Website
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Deploying to surge
+    steps:
+      - uses: actions/checkout@v1
+      - name: Install surge and fire deployment
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14
+      - run: npm install -g surge
+      - run: npm install --global mocha
+      - run: npm test 
+      - run: surge ./ ${{ secrets.SURGE_DOMAIN }} --token ${{ secrets.SURGE_TOKEN }}
+      - run: sudo apt install curl
+      - run: curl -Is http://www.google.com | head -n 1
