@@ -1,6 +1,11 @@
 name: Build-Test-Deploy
 
-on: [push]
+on:
+  push:
+    branches:    
+      - master
+  schedule:
+   - cron:  '0 19 * * *'
 
 jobs:
   Build-job:
