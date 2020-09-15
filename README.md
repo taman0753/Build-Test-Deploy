@@ -27,7 +27,8 @@ SURGE_DOMAIN -> The domain you want publish your site
 
 3)	Push the project folder to Github.
 
-4)Now go to actions tab in the repo and crate a custom workflow with yaml file and save it.
+4) Now go to actions tab in the repo and crate a custom workflow with yaml file and save it.
+
 (Check the workflow folder for the yaml file)
 
 5)	Test it with a commit.
