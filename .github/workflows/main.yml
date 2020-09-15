@@ -1,11 +1,11 @@
-name: Deploy Website
+name: Build-Test-Deploy
 
 on: [push]
 
 jobs:
-  build:
+  build-job:
     runs-on: ubuntu-latest
-    name: Deploying to surge
+    name: Making build
     steps:
       - uses: actions/checkout@v1
       - name: Install surge and fire deployment
@@ -13,6 +13,16 @@ jobs:
         with:
           node-version: 14
       - run: npm install -g surge
+      
+  test-job:
+    runs-on: ubuntu-latest
+    name: Doing testing
+    steps:
+      - uses: actions/checkout@v1
+      - name: Install surge and fire deployment
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14
       - run: npm install --global mocha
       - run: npm test 
       - run: surge ./ ${{ secrets.SURGE_DOMAIN }} --token ${{ secrets.SURGE_TOKEN }}
