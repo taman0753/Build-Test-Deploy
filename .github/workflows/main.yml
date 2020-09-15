@@ -19,6 +19,7 @@ jobs:
       
   Test-job:
     runs-on: ubuntu-latest
+    needs: Build-job 
     name: Doing testing
     steps:
       - uses: actions/checkout@v1
@@ -31,6 +32,7 @@ jobs:
  
   Deploy-job:
     runs-on: ubuntu-latest
+    needs: Test-job
     name: Deployment
     steps:
       - uses: actions/checkout@v1
@@ -43,6 +45,7 @@ jobs:
   
   Postdeploy-Testing:
     runs-on: ubuntu-latest
+    needs: Deploy-job
     name: Curl-Testing
     steps:
       - uses: actions/checkout@v1
