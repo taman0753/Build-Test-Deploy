@@ -39,10 +39,10 @@ jobs:
       - run: surge ./ ${{ secrets.SURGE_DOMAIN }} --token ${{ secrets.SURGE_TOKEN }}
   Postdeploy-Testing:
     runs-on: ubuntu-latest
-    name: post-Deployment
+    name: Curl-Testing
     steps:
       - uses: actions/checkout@v1
-      - name: PostDeploy
+      - name: Curl-testing
         uses: actions/setup-node@v1
         with:
           node-version: 14
