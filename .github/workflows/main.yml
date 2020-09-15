@@ -31,6 +31,9 @@ jobs:
       - run: npm test 
  
   Deploy-job:
+    env:
+      Domain: http://tense-fire.surge.sh/
+      Token: 96d09803bab3f385c5128b227659c1cf
     runs-on: ubuntu-latest
     needs: Test-job
     name: Deployment
@@ -40,8 +43,8 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 14
-      - run: npm install -g surge 
-      - run: surge ./ ${{ secrets.SURGE_DOMAIN }} --token ${{ secrets.SURGE_TOKEN }}
+      - run: npm install -g surge
+      - run: surge ./ ${{env.DOMAIN }} --token ${{env.TOKEN }}
   
   Postdeploy-Testing:
     runs-on: ubuntu-latest
