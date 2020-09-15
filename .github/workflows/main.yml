@@ -19,12 +19,34 @@ jobs:
     name: Doing testing
     steps:
       - uses: actions/checkout@v1
-      - name: Install surge and fire deployment
+      - name: test
         uses: actions/setup-node@v1
         with:
           node-version: 14
       - run: npm install --global mocha
       - run: npm test 
+  deploy-job:
+    runs-on: ubuntu-latest
+    name: Deployment
+    steps:
+      - uses: actions/checkout@v1
+      - name: Install surge and fire deployment
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14
+      
+      - run: npm install -g surge 
       - run: surge ./ ${{ secrets.SURGE_DOMAIN }} --token ${{ secrets.SURGE_TOKEN }}
+      - run: sudo apt install curl
+      - run: curl -Is http://www.google.com | head -n 1
+  post-deploy testing:
+    runs-on: ubuntu-latest
+    name: post-Deployment
+    steps:
+      - uses: actions/checkout@v1
+      - name: Install surge and fire deployment
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14
       - run: sudo apt install curl
       - run: curl -Is http://www.google.com | head -n 1
