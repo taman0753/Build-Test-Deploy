@@ -25,6 +25,7 @@ jobs:
           node-version: 14
       - run: npm install --global mocha
       - run: npm test 
+ 
   Deploy-job:
     runs-on: ubuntu-latest
     name: Deployment
@@ -34,9 +35,9 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 14
-      
       - run: npm install -g surge 
       - run: surge ./ ${{ secrets.SURGE_DOMAIN }} --token ${{ secrets.SURGE_TOKEN }}
+  
   Postdeploy-Testing:
     runs-on: ubuntu-latest
     name: Curl-Testing
