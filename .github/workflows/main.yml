@@ -39,7 +39,7 @@ jobs:
       - run: surge ./ ${{ secrets.SURGE_DOMAIN }} --token ${{ secrets.SURGE_TOKEN }}
       - run: sudo apt install curl
       - run: curl -Is http://www.google.com | head -n 1
-  post-deploy testing:
+  postdeploy-testing:
     runs-on: ubuntu-latest
     name: post-Deployment
     steps:
