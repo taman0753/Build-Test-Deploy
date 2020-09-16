@@ -21,22 +21,36 @@ jobs:
           node-version: 14
       - run: npm install -g surge
       
-  Test-job:
+  Mocha-Test-job:
     runs-on: ubuntu-latest
     needs: Build-job 
-    name: Doing testing
+    name: Doing  mocha testing
     steps:
       - uses: actions/checkout@v1
-      - name: Test
+      - name: Test1
         uses: actions/setup-node@v1
         with:
           node-version: 14
       - run: npm install --global mocha
       - run: npm test 
+  
+  Jasmine-Test-job:
+    runs-on: ubuntu-latest
+    needs: Build-job 
+    name: Doing jasmine testing
+    steps:
+      - uses: actions/checkout@v1
+      - name: Test2
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14
+      - run: npm install --save-dev jasmine
+      - run: npx jasmine init
+      - run: npm test 
  
   Deploy-job:
     runs-on: ubuntu-latest
-    needs: Test-job
+    needs: Jasmine-Test-job
     name: Deployment
     steps:
       - uses: actions/checkout@v1
