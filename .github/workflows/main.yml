@@ -30,7 +30,7 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 14
-      - run: npm install chai
+      - run: npm install --global mocha
       - run: npm test 
  
  Deploy-job:
