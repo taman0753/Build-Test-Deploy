@@ -11,7 +11,7 @@ on:
 jobs:
   Build-job:
     runs-on: ubuntu-latest
-    name: Making build
+    name: Making builds
     steps:
       - uses: actions/checkout@v1
       - name: Install surge
