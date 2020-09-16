@@ -1,12 +1,7 @@
 name: Build-Test-Deploy
 
 on:
-  workflow_dispatch:
-   -branch: master 
-  push:
-    -branch: master
-  schedule:
-    - cron: '0 19 * * *
+  workflow_dispatch
 
 jobs:
   Build-job:
