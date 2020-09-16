@@ -7,6 +7,6 @@ describe('Simple Add Test', () => {
         assert.equal(3 * 3, 9);
     });
  it('should return 1', () => {
-        assert.equal(6 * 6, 1);
+        assert.equal(6 / 6, 1);
     });
 });
