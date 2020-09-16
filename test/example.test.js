@@ -1,5 +1,5 @@
 const assert = require('assert');
-describe('Simple Add Test', () => {
+describe('Simple Tests', () => {
  it('should return 2', () => {
         assert.equal(1 + 1, 2);
     });
