@@ -31,6 +31,7 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 14
+      - run: npm install --save-dev jasmine
       - run: npm install --global mocha
       - run: npm test 
   
@@ -44,6 +45,7 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 14
+      - run: npm install --global mocha
       - run: npm install --save-dev jasmine
       - run: npx jasmine init
       - run: npm test 
