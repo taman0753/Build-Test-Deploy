@@ -8,9 +8,8 @@ on:
   schedule:
     - cron: '0 7 * * *'
     - cron: '0 21 * * *'
-
 jobs:
-  Build-job:
+ Build-job:
     runs-on: ubuntu-latest
     name: Making builds
     steps:
@@ -21,7 +20,7 @@ jobs:
           node-version: 14
       - run: npm install -g surge
       
-  Mocha-Test-job:
+ Test-job:
     runs-on: ubuntu-latest
     needs: Build-job 
     name: Doing  mocha testing
@@ -33,26 +32,12 @@ jobs:
           node-version: 14
       - run: npm install --save-dev jasmine
       - run: npm install --global mocha
-      - run: npm test 
-  
-  Jasmine-Test-job:
-    runs-on: ubuntu-latest
-    needs: Build-job 
-    name: Doing jasmine testing
-    steps:
-      - uses: actions/checkout@v1
-      - name: Test2
-        uses: actions/setup-node@v1
-        with:
-          node-version: 14
-      - run: npm install --global mocha
-      - run: npm install --save-dev jasmine
       - run: npx jasmine init
       - run: npm test 
  
-  Deploy-job:
+ Deploy-job:
     runs-on: ubuntu-latest
-    needs: Jasmine-Test-job
+    needs: Test-job
     name: Deployment
     steps:
       - uses: actions/checkout@v1
@@ -63,7 +48,7 @@ jobs:
       - run: npm install -g surge
       - run: surge ./ ${{secrets.SURGE_DOMAIN }} --token ${{ secrets.SURGE_TOKEN }}
   
-  Postdeploy-Testing:
+ Postdeploy-Testing:
     runs-on: ubuntu-latest
     needs: Deploy-job
     name: Curl-Testing
