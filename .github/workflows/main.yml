@@ -50,7 +50,7 @@ jobs:
     name: Test3
     steps:
       - uses: actions/checkout@v1
-      - name: Test2
+      - name: Test3
         uses: actions/setup-node@v1
         with:
           node-version: 14
