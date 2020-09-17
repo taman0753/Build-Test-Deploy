@@ -22,7 +22,8 @@ jobs:
       
  Test-job1:
     runs-on: ubuntu-latest
-    needs: Build-job 
+    needs: Build-job
+    if: github.ref != 'refs/heads/production' 
     name: Test1
     steps:
       - uses: actions/checkout@v1
@@ -35,6 +36,7 @@ jobs:
  Test-job2:
     runs-on: ubuntu-latest
     needs: Build-job 
+    if: github.ref != 'refs/heads/production'
     name: Test2
     steps:
       - uses: actions/checkout@v1
@@ -46,7 +48,8 @@ jobs:
       - run: npm test
  Test-job3:
     runs-on: ubuntu-latest
-    needs: Build-job 
+    needs: Build-job
+    if: github.ref != 'refs/heads/production' 
     name: Test3
     steps:
       - uses: actions/checkout@v1
