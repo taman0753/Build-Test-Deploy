@@ -87,16 +87,18 @@ jobs:
       - run: sudo apt install curl
       - run: curl -Is http://www.google.com | head -n 1
       
-      - name: Send some mail
-        if: always()
-        uses: wadeww/send-email-action@master
+      - name: Send mail
+        uses: dawidd6/action-send-mail@v2
         with:
            server_address: smtp.gmail.com
-           port: 465
+           server_port: 465
            username: ${{secrets.MAIL_USERNAME}}
            password: ${{secrets.MAIL_PASSWORD}}
-           subject: Workflow finished
-           body: ${{job.status}}
+           subject: Github Actions job result
+    # Literal body:
+           body: Build job of ${{github.repository}} completed successfully!
+   
            to: 500069023@stu.upes.ac.in
-           from: Me
+           from: Aman
+ 
 
