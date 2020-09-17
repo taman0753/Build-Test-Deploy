@@ -71,7 +71,7 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 14
-      - run: npm install -g surge
+      - run: install -g surge
       - run: surge ./ ${{secrets.SURGE_DOMAIN }} --token ${{ secrets.SURGE_TOKEN }}
 
  Postdeploy-Testing:
