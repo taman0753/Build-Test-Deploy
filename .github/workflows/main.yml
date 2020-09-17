@@ -102,7 +102,7 @@ jobs:
            password: ${{secrets.MAIL_PASSWORD}}
            subject: Github Actions job result
     # Literal body:
-           body: Workflow status of ${{github.repository}} Buildjob ${{needs.Build-job.result}}
+           body: Workflow status of ${{github.repository}} 1)Buildjob- ${{needs.Build-job.result}} 2)Test1- ${{needs.Test-job1.result}} 3)Test2- ${{needs.Test-job2.result}} 4)Test3- ${{needs.Test-job3.result}} 5)Deploy- ${{needs.Deploy-job3.result}} 6)PostDeploy- ${{needs.Postdeploy-Testing.result}} 
            to: 500069023@stu.upes.ac.in
            from: Aman Tyagi
  
