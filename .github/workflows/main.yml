@@ -84,9 +84,19 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 14
-      - run: sudo apt install curl
+      - run:  apt install curl
       - run: curl -Is http://www.google.com | head -n 1
-      
+
+ SendEmail:
+    runs-on: ubuntu-latest
+    if: always() 
+    
+  
+    
+    needs: [Postdeploy-Testing]
+  
+    name: EmailNotify
+    steps:    
       - name: Send mail
         uses: dawidd6/action-send-mail@v2
         with:
@@ -96,9 +106,8 @@ jobs:
            password: ${{secrets.MAIL_PASSWORD}}
            subject: Github Actions job result
     # Literal body:
-           body: Build job of ${{github.repository}} completed successfully!
-   
+           body: Workflow status ${{github.repository}} ${{job.status}}
            to: 500069023@stu.upes.ac.in
-           from: Aman
+           from: Aman Tyagi
  
 
