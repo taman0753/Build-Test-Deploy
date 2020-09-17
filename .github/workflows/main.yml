@@ -84,7 +84,7 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 14
-      - run:  apt install curl
+      - run:  sudo apt install curl
       - run: curl -Is http://www.google.com | head -n 1
 
  SendEmail:
@@ -106,7 +106,7 @@ jobs:
            password: ${{secrets.MAIL_PASSWORD}}
            subject: Github Actions job result
     # Literal body:
-           body: Workflow status ${{github.repository}} ${{job.status}}
+           body: Workflow status ${{github.repository}} ${{Postdeploy.status}}
            to: 500069023@stu.upes.ac.in
            from: Aman Tyagi
  
