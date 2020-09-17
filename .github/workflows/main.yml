@@ -86,17 +86,4 @@ jobs:
           node-version: 14
       - run: sudo apt install curl
       - run: curl -Is http://www.google.com | head -n 1
----
- 
- on: push
-name: Slack Notification Demo
-jobs:
-  slackNotification:
-    name: Slack Notification
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - name: Slack Notification
-      uses: rtCamp/action-slack-notify@master
-      env:
-        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+
