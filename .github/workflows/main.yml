@@ -86,4 +86,17 @@ jobs:
           node-version: 14
       - run: sudo apt install curl
       - run: curl -Is http://www.google.com | head -n 1
+      
+      - name: Send some mail
+        if: always()
+        uses: wadeww/send-email-action@master
+        with:
+           server_address: smtp.gmail.com
+           port: 465
+           username: ${{secrets.MAIL_USERNAME}}
+           password: ${{secrets.MAIL_PASSWORD}}
+           subject: Workflow finished
+           body: ${{job.status}}
+           to: 500069023@stu.upes.ac.in
+           from: Me
 
