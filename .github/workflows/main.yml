@@ -90,6 +90,7 @@ jobs:
  SendEmail:
     runs-on: ubuntu-latest
     if: always()
+    needs: [Postdeploy-Testing]
     name: EmailNotify
     steps:    
       - name: Send mail
