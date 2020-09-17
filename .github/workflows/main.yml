@@ -89,12 +89,7 @@ jobs:
 
  SendEmail:
     runs-on: ubuntu-latest
-    if: always() 
-    
-  
-    
-    needs: [Postdeploy-Testing]
-  
+    if: always()
     name: EmailNotify
     steps:    
       - name: Send mail
@@ -106,7 +101,7 @@ jobs:
            password: ${{secrets.MAIL_PASSWORD}}
            subject: Github Actions job result
     # Literal body:
-           body: Workflow status ${{github.repository}} ${{Postdeploy.status}}
+           body: Workflow status ${{github.repository}} ${{needs.Postdeploy-Testing.result}}
            to: 500069023@stu.upes.ac.in
            from: Aman Tyagi
  
