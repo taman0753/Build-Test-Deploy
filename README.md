@@ -42,12 +42,9 @@ npm install -g surge
 
 This command will install surge and will install all your requirements.
 
-2)Test-job:
+2)Test-job1/Test-job2/Test-job3
 
-Npm install –global mocha
-Npm test
-
-These commands will install mocha and will run the test script present in Test folder.
+These jobs will install mocha , chai and unitjs (these are tesing framework) and will run the test script present in Test folder.
 
 3)Deploy-job
 
@@ -75,10 +72,9 @@ MAIL_PASSWORD -> Password of the above email.
 
 6)Notify on Slack
 
+Now again setup 1 more secret in repo
 
-
-
-
+SLACK_WEBHOOK - The url of your webhook on slack
 
 NOTE: You can visit the webpage at http://tense-fire.surge.sh/
 ![Screenshot (316)](https://user-images.githubusercontent.com/46739055/93215825-8e197c00-f784-11ea-8cd5-bbac7a0b8c3a.png)
