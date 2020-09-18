@@ -103,8 +103,8 @@ jobs:
            subject: Github Actions job result
     # Literal body:
            body: Workflow status of ${{github.repository}} 1)Buildjob- ${{needs.Build-job.result}} 2)Test1- ${{needs.Test-job1.result}} 3)Test2- ${{needs.Test-job2.result}} 4)Test3- ${{needs.Test-job3.result}} 5)Deploy- ${{needs.Deploy-job.result}} 6)PostDeploy- ${{needs.Postdeploy-Testing.result}} 
-           to: 500069023@stu.upes.ac.in
-           from: Aman Tyagi
+           to: taman0753@gmail.com
+           from: BlackJab
  
  Notify-on-slack:
     name: Slack Notification
@@ -118,5 +118,5 @@ jobs:
       env:
         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
         SLACK_TITLE: Workflow status
-        SLACK_USERNAME: Aman
+        SLACK_USERNAME: BlackJab
         SLACK_MESSAGE: 1)Buildjob- ${{needs.Build-job.result}} 2)Test1- ${{needs.Test-job1.result}} 3)Test2- ${{needs.Test-job2.result}} 4)Test3- ${{needs.Test-job3.result}} 5)Deploy- ${{needs.Deploy-job.result}} 6)PostDeploy- ${{needs.Postdeploy-Testing.result}} 
