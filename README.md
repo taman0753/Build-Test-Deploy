@@ -1,7 +1,7 @@
 Website to surge via Github Actions!
 
 
-This will help you to build , test and deploy your website to surge via Github actions.
+This will help you to build , test and deploy your website to surge via Github actions and notify you on Email and Slack.
 
 The website used here is a basic website build with Gatsby Framework. Follow the below link:
 
@@ -19,7 +19,7 @@ https://surge.sh/help/getting-started-with-surge
  Now,
 1)	Get a Deployment Token- Run the command “surge token” from cmd/bash and save the token for future use.
 
-2)	 Setup 2 secrets in your repository secrets tab
+2)For now , Setup 2 secrets in your repository secrets tab (You will be setting-up more secrets later)
 
 SURGE_TOKEN -> Your Surge Token from cmd
 
@@ -42,12 +42,9 @@ npm install -g surge
 
 This command will install surge and will install all your requirements.
 
-2)Test-job:
+2)Test-job1/Test-job2/Test-job3
 
-Npm install –global mocha
-Npm test
-
-These commands will install mocha and will run the test script present in Test folder.
+These jobs will install mocha , chai and unitjs (these are tesing framework) and will run the test script present in Test folder.
 
 3)Deploy-job
 
@@ -63,7 +60,24 @@ curl -Is http://www.google.com | head -n 1
 These commands will install curl and run a post-deployment test with curl command.
 (This command will return HTTP/1.1 200 OK if all the things are right)
 
+5)Notify on Email
+
+Setup 2 secrets in your repository secrets tab
+
+MAIL_USERNAME -> Your complete mail-id with which you want send email and set the smtp server.
+
+MAIL_PASSWORD -> Password of the above email.
+
+(For gmail you need enable the option of less secure apps from settings)
+
+6)Notify on Slack
+
+Now again setup 1 more secret in repo
+
+SLACK_WEBHOOK - The url of your webhook on slack
+
 NOTE: You can visit the webpage at http://tense-fire.surge.sh/
 ![Screenshot (316)](https://user-images.githubusercontent.com/46739055/93215825-8e197c00-f784-11ea-8cd5-bbac7a0b8c3a.png)
+
 
 
