@@ -19,7 +19,7 @@ https://surge.sh/help/getting-started-with-surge
  Now,
 1)	Get a Deployment Token- Run the command “surge token” from cmd/bash and save the token for future use.
 
-2)	 Setup 2 secrets in your repository secrets tab
+2)For now , Setup 2 secrets in your repository secrets tab (You will be setting-up more secrets later)
 
 SURGE_TOKEN -> Your Surge Token from cmd
 
@@ -64,6 +64,12 @@ These commands will install curl and run a post-deployment test with curl comman
 (This command will return HTTP/1.1 200 OK if all the things are right)
 
 5)Notify on Email
+
+Setup 2 secrets in your repository secrets tab
+
+MAIL_USERNAME -> Your complete mail-id with which you want send email and set the smtp server.
+
+MAIL_PASSWORD -> Password of the above email.
 
 
 
