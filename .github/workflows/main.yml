@@ -87,7 +87,7 @@ jobs:
       - run:  sudo apt install curl
       - run: curl -Is http://www.google.com | head -n 1
 
- SendEmail:
+ Notify on email:
     runs-on: ubuntu-latest
     if: always()
     needs: [Postdeploy-Testing,Build-job,Test-job1,Test-job2,Test-job3,Deploy-job]
@@ -106,4 +106,17 @@ jobs:
            to: 500069023@stu.upes.ac.in
            from: Aman Tyagi
  
-
+ Notify on slack:
+    name: Slack Notification
+    runs-on: ubuntu-latest
+    if: always()
+    needs: [Postdeploy-Testing,Build-job,Test-job1,Test-job2,Test-job3,Deploy-job]
+    steps:
+    - uses: actions/checkout@v2
+    - name: Slack Notification
+      uses: rtCamp/action-slack-notify@master
+      env:
+        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+        SLACK_TITLE: Workflow status
+        SLACK_USERNAME: Aman
+        SLACK_MESSAGE: 1)Buildjob- ${{needs.Build-job.result}} 2)Test1- ${{needs.Test-job1.result}} 3)Test2- ${{needs.Test-job2.result}} 4)Test3- ${{needs.Test-job3.result}} 5)Deploy- ${{needs.Deploy-job.result}} 6)PostDeploy- ${{needs.Postdeploy-Testing.result}} 
