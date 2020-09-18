@@ -36,7 +36,7 @@ jobs:
  Test-job2:
     runs-on: ubuntu-latest
     needs: Build-job 
-    if: github.ref != 'refs/heads/production'
+    if: github.ref != 'refs/heads/production' 
     name: Test2
     steps:
       - uses: actions/checkout@v1
@@ -48,7 +48,7 @@ jobs:
       - run: npm test
  Test-job3:
     runs-on: ubuntu-latest
-    needs: Build-job
+    needs: Build-job 
     if: github.ref != 'refs/heads/production' 
     name: Test3
     steps:
@@ -84,6 +84,39 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 14
-      - run: sudo apt install curl
+      - run:  sudo apt install curl
       - run: curl -Is http://www.google.com | head -n 1
 
+ Notify-on-email:
+    runs-on: ubuntu-latest
+    if: always()
+    needs: [Postdeploy-Testing,Build-job,Test-job1,Test-job2,Test-job3,Deploy-job]
+    name: EmailNotify
+    steps:    
+      - name: Send mail
+        uses: dawidd6/action-send-mail@v2
+        with:
+           server_address: smtp.gmail.com
+           server_port: 465
+           username: ${{secrets.MAIL_USERNAME}}
+           password: ${{secrets.MAIL_PASSWORD}}
+           subject: Github Actions job result
+    # Literal body:
+           body: Workflow status of ${{github.repository}} 1)Buildjob- ${{needs.Build-job.result}} 2)Test1- ${{needs.Test-job1.result}} 3)Test2- ${{needs.Test-job2.result}} 4)Test3- ${{needs.Test-job3.result}} 5)Deploy- ${{needs.Deploy-job.result}} 6)PostDeploy- ${{needs.Postdeploy-Testing.result}} 
+           to: 500069023@stu.upes.ac.in
+           from: Aman Tyagi
+ 
+ Notify-on-slack:
+    name: Slack Notification
+    runs-on: ubuntu-latest
+    if: always()
+    needs: [Postdeploy-Testing,Build-job,Test-job1,Test-job2,Test-job3,Deploy-job]
+    steps:
+    - uses: actions/checkout@v2
+    - name: Slack Notification
+      uses: rtCamp/action-slack-notify@master
+      env:
+        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+        SLACK_TITLE: Workflow status
+        SLACK_USERNAME: Aman
+        SLACK_MESSAGE: 1)Buildjob- ${{needs.Build-job.result}} 2)Test1- ${{needs.Test-job1.result}} 3)Test2- ${{needs.Test-job2.result}} 4)Test3- ${{needs.Test-job3.result}} 5)Deploy- ${{needs.Deploy-job.result}} 6)PostDeploy- ${{needs.Postdeploy-Testing.result}} 
