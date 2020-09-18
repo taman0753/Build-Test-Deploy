@@ -1,7 +1,7 @@
 Website to surge via Github Actions!
 
 
-This will help you to build , test and deploy your website to surge via Github actions.
+This will help you to build , test and deploy your website to surge via Github actions and notify you on Email and Slack.
 
 The website used here is a basic website build with Gatsby Framework. Follow the below link:
 
@@ -63,7 +63,14 @@ curl -Is http://www.google.com | head -n 1
 These commands will install curl and run a post-deployment test with curl command.
 (This command will return HTTP/1.1 200 OK if all the things are right)
 
+5)Notify on Email
+
+
+
+
+
 NOTE: You can visit the webpage at http://tense-fire.surge.sh/
 ![Screenshot (316)](https://user-images.githubusercontent.com/46739055/93215825-8e197c00-f784-11ea-8cd5-bbac7a0b8c3a.png)
+
 
 
