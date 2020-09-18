@@ -71,6 +71,11 @@ MAIL_USERNAME -> Your complete mail-id with which you want send email and set th
 
 MAIL_PASSWORD -> Password of the above email.
 
+(For gmail you need enable the option of less secure apps from settings)
+
+6)Notify on Slack
+
+
 
 
 
