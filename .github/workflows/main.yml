@@ -14,16 +14,16 @@ jobs:
     name: Making builds
     steps:
       - uses: actions/checkout@v1
-      - name: Install surge
-        uses: actions/setup-node@v1
+      - name: Make build
+        uses: jzweifel/gatsby-cli-github-action@master
         with:
-          node-version: 14
-      - run: npm build
+            gatsby-arg: build
+
       - name: Uploading artifacts
         uses: actions/upload-artifact@v2
         with:
           name: build
-          path: artifact
+          path: test
       
  Test-job1:
     runs-on: ubuntu-latest
