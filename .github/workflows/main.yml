@@ -87,27 +87,20 @@ jobs:
       - run:  sudo apt install curl
       - run: curl -Is http://www.google.com | head -n 1
  
- sonarCloudTrigger:
-    needs: [Postdeploy-Testing]
-    if: always()
-    name: SonarCloud Trigger
+ sonarcloud:
     runs-on: ubuntu-latest
     steps:
-      - name: Clone Repository
-        uses: actions/checkout@master
-      - name: Analyze with SonarCloud
-        uses: sonarsource/sonarcloud-github-action@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
- args: >
-             
-             -Dsonar.projectKey=my-projectkey
-      
-             -Dsonar.tests=tests/
-             -Dsonar.verbose=true
+    - uses: actions/checkout@v2
+      with:
+        # Disabling shallow clone is recommended for improving relevancy of reporting
+        fetch-depth: 0
+    - name: SonarCloud Scan
+      uses: sonarsource/sonarcloud-github-action@master
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
- Notify-on-email:
+Notify-on-email:
     runs-on: ubuntu-latest
     if: always()
     needs: [Postdeploy-Testing,Build-job,Test-job1,Test-job2,Test-job3,Deploy-job]
