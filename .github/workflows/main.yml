@@ -86,6 +86,21 @@ jobs:
           node-version: 14
       - run:  sudo apt install curl
       - run: curl -Is http://www.google.com | head -n 1
+ 
+ sonarCloudTrigger:
+    needs: [Postdeploy-Testing]
+    if: always()
+    name: SonarCloud Trigger
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone Repository
+        uses: actions/checkout@master
+      - name: Analyze with SonarCloud
+        uses: sonarsource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
 
  Notify-on-email:
     runs-on: ubuntu-latest
