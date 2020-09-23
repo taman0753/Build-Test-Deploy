@@ -19,6 +19,11 @@ jobs:
         with:
           node-version: 14
       - run: npm build
+      - name: Uploading artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: build
+          path: artifact
       
  Test-job1:
     runs-on: ubuntu-latest
