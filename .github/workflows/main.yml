@@ -92,8 +92,9 @@ jobs:
       - run:  sudo apt install curl
       - run: curl -Is http://www.google.com | head -n 1
  
- sonarcloud:
+ sonartest:
     runs-on: ubuntu-latest
+    needs: [Postdeploy-Testing]
     steps:
     - uses: actions/checkout@v2
       with:
