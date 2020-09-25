@@ -25,8 +25,8 @@ jobs:
           name: build
           path: artifact/index.html
  
- Jira-issue:
-    name: Transition Issue
+ Jira-issue-create:
+    name: Transition Issue Create
     needs: Build-job
     runs-on: ubuntu-latest
     steps:
@@ -169,3 +169,23 @@ jobs:
         SLACK_TITLE: Workflow status
         SLACK_USERNAME: BlackJab
         SLACK_MESSAGE: 1)Buildjob- ${{needs.Build-job.result}} 2)Test1- ${{needs.Test-job1.result}} 3)Test2- ${{needs.Test-job2.result}} 4)Test3- ${{needs.Test-job3.result}} 5)Deploy- ${{needs.Deploy-job.result}} 6)PostDeploy- ${{needs.Postdeploy-Testing.result}} 
+
+ Jira-Issue-done:
+    name: Transition Issue Done
+    runs-on: ubuntu-latest
+    steps:
+    - name: Login
+      uses: atlassian/gajira-login@master
+      env:
+        JIRA_BASE_URL: ${{ secrets.JIRA_BASE_URL }}
+        JIRA_USER_EMAIL: ${{ secrets.JIRA_USER_EMAIL }}
+        JIRA_API_TOKEN: ${{ secrets.JIRA_API_TOKEN }}
+    - name: Transition issue
+      id: create
+      uses: atlassian/gajira-transition@master
+      with:
+       issue: Task
+       transition: "DONE"
+
+    
+
