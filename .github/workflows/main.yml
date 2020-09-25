@@ -41,6 +41,9 @@ jobs:
       uses: atlassian/gajira-create@master
       with:
         project: DFGA
+        issuetype: Build
+        summary: |
+              Testing will start for ${{ github.repository }}:
 
     - name: Transition issue
       uses: atlassian/gajira-transition@master
