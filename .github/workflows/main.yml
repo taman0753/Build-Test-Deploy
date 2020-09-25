@@ -172,6 +172,8 @@ jobs:
 
  Jira-Issue-done:
     name: Transition Issue Done
+    needs: [Notify-on-slack]
+    if: always()
     runs-on: ubuntu-latest
     steps:
     - name: Login
