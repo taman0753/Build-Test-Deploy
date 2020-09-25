@@ -184,11 +184,10 @@ jobs:
         JIRA_API_TOKEN: ${{ secrets.JIRA_API_TOKEN }}
     
     - name: Transition issue
+      id: transition
       uses: atlassian/gajira-transition@master
-      id: create
       with:
-        issue: create
-        transition: "DONE"
-
+        issue: DFGA-1
+        transition: "Done"
     
 
