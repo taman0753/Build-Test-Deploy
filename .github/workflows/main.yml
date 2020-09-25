@@ -172,7 +172,7 @@ jobs:
 
  Jira-Issue-done:
     name: Transition Issue Done
-    needs: [Jira-issue-create]
+    needs: [Postdeploy-Testing]
 
     runs-on: ubuntu-latest
     steps:
@@ -193,6 +193,6 @@ jobs:
       uses: atlassian/gajira-comment@master
       with:
        issue: DFGA-2
-       comment: Hello from GitHub actions
+       comment: Pipeline Success
     
 
