@@ -172,7 +172,7 @@ jobs:
 
  Jira-Issue-done:
     name: Transition Issue Done
-    needs: [Postdeploy-Testing]
+    needs: [Jira-issue-create]
 
     runs-on: ubuntu-latest
     steps:
@@ -187,7 +187,12 @@ jobs:
       id: transition
       uses: atlassian/gajira-transition@master
       with:
-        issue: DFGA-1
+        issue: DFGA-2
         transition: "Done"
+    - name: Comment on issue
+      uses: atlassian/gajira-comment@master
+      with:
+       issue: DFGA-2
+       comment: Hello from GitHub actions
     
 
