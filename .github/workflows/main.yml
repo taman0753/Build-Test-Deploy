@@ -187,12 +187,12 @@ jobs:
       id: transition
       uses: atlassian/gajira-transition@master
       with:
-        issue: DFGA-2
+        issue: DFGA-3
         transition: "Done"
     - name: Comment on issue
       uses: atlassian/gajira-comment@master
       with:
-       issue: DFGA-2
+       issue: DFGA-3
        comment: Pipeline Success
     
 
