@@ -39,6 +39,8 @@ jobs:
     - name: Create new issue
       id: create
       uses: atlassian/gajira-create@master
+      with:
+        project: DFGA
 
     - name: Transition issue
       uses: atlassian/gajira-transition@master
