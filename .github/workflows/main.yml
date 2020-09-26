@@ -120,6 +120,19 @@ jobs:
       - run:  sudo apt install curl
       - run: curl -Is http://www.google.com | head -n 1
  
+ Export-postman Data:
+    runs-on: ubuntu-latest
+    name: Postman Data
+    steps:
+      - uses: actions/checkout@master
+      
+      - uses: matt-ball/newman-action@master
+        with:
+         collection: github-actions.postman_collection.json
+         environment: Github Actions.postman_environment.json
+    
+   
+ 
  sonartest:
     runs-on: ubuntu-latest
     needs: [Postdeploy-Testing]
