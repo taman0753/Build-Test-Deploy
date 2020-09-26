@@ -76,7 +76,7 @@ Now again setup 1 more secret in repo
 
 SLACK_WEBHOOK - The url of your webhook on slack
 
-NOTE: You can visit the webpage at http://tense-fire.surge.sh/ :simple_smile:
+NOTE: You can visit the webpage at http://tense-fire.surge.sh/ 
 ![Screenshot (316)](https://user-images.githubusercontent.com/46739055/93215825-8e197c00-f784-11ea-8cd5-bbac7a0b8c3a.png)
 
 # Understanding the other tokens of the workflow : (You need to save all these in secrets of your repo)
@@ -130,7 +130,7 @@ environment, make sure your environment is selected in the upper right hand corn
 
 ![4](https://user-images.githubusercontent.com/46739055/94343204-3278a980-0034-11eb-9870-65e11c9d85f7.PNG)
 
-### Congratulations! Your manual button to trigger your GitHub Actions workflow has successfully been setup. :thumbsup:
+### Congratulations! Your manual button to trigger your GitHub Actions workflow from Postman has successfully been setup. :thumbsup:
 
 
 
