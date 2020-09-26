@@ -36,23 +36,23 @@ SURGE_DOMAIN -> The domain you want publish your site
 
 # Understanding the jobs:
 
-1)Build-Job:
+### 1)Build-Job:
 
 npm install -g surge
 
 This command will install surge and will install all your requirements.
 
-2)Test-job1/Test-job2/Test-job3
+### 2)Test-job1/Test-job2/Test-job3
 
 These jobs will install mocha , chai and unitjs (these are tesing framework) and will run the test script present in Test folder.
 
-3)Deploy-job
+### 3)Deploy-job
 
 surge ./ ${{secrets.SURGE_DOMAIN }} --token ${{ secrets.SURGE_TOKEN }}
 
 These commands will take your secrets and will deploy your website to surge.sh
 
-4)Postdeploy-Testing
+### 4)Postdeploy-Testing
 
 Sudo apt install curl
 curl -Is http://www.google.com | head -n 1
@@ -60,7 +60,7 @@ curl -Is http://www.google.com | head -n 1
 These commands will install curl and run a post-deployment test with curl command.
 (This command will return HTTP/1.1 200 OK if all the things are right)
 
-5)Notify on Email
+### 5)Notify on Email
 
 Setup 2 secrets in your repository secrets tab
 
@@ -70,30 +70,30 @@ MAIL_PASSWORD -> Password of the above email.
 
 (For gmail you need enable the option of less secure apps from settings)
 
-6)Notify on Slack
+### 6)Notify on Slack
 
 Now again setup 1 more secret in repo
 
 SLACK_WEBHOOK - The url of your webhook on slack
 
-NOTE: You can visit the webpage at http://tense-fire.surge.sh/
+NOTE: You can visit the webpage at http://tense-fire.surge.sh/ :simple_smile:
 ![Screenshot (316)](https://user-images.githubusercontent.com/46739055/93215825-8e197c00-f784-11ea-8cd5-bbac7a0b8c3a.png)
 
 # Understanding the other tokens of the workflow : (You need to save all these in secrets of your repo)
 
-JIRA_TOKEN:
+### JIRA_TOKEN:
 1)Log in to https://id.atlassian.com/manage/api-tokens.
 2)Click Create API token.
 3)From the dialog that appears, enter a memorable and concise Label for your token and click Create.
 4)Click Copy to clipboard, then paste the token to your script, or elsewhere to save
 
-JIRA_BASE_URL: 
+### JIRA_BASE_URL: 
 URL of your Jira account. (eg: https://example.atlassian.net/)
 
-JIRA_USER_EMAIL:
+### JIRA_USER_EMAIL:
 E-mail with which you have created Jira account.
 
-SONAR_TOKEN :
+### SONAR_TOKEN :
 
 To generate a token, to go User > My Account > Security (on your sonar account) Your existing tokens are listed here, each with a Revoke button.
 
@@ -101,7 +101,7 @@ The form at the bottom of the page allows you to generate new tokens. Once you c
 
 notification you will not be able to retrieve it.
 
-GITHUB_TOKEN:
+### GITHUB_TOKEN:
 It will be generated automatically.
 
 # Triggering GitHub Actions Using Postman
@@ -130,7 +130,7 @@ environment, make sure your environment is selected in the upper right hand corn
 
 ![4](https://user-images.githubusercontent.com/46739055/94343204-3278a980-0034-11eb-9870-65e11c9d85f7.PNG)
 
-Congratulations! Your manual button to trigger your GitHub Actions workflow has successfully been setup.
+### Congratulations! Your manual button to trigger your GitHub Actions workflow has successfully been setup. :thumbsup:
 
 
 
