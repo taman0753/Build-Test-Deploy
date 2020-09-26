@@ -133,7 +133,7 @@ jobs:
           mediaType: | # The | is significant!
             previews: 
               - antiope
-          name: "Test check run"
+          name: "API Test Results"
           head_sha: ${{ github.sha }}
           output: | # The | is significant!
             title: API Test Results
