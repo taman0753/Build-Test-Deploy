@@ -1,4 +1,4 @@
-Website to surge via Github Actions!
+--->Website to surge via Github Actions!
 
 
 This will help you to build , test and deploy your website to surge via Github actions and notify you on Email and Slack.
@@ -34,7 +34,7 @@ SURGE_DOMAIN -> The domain you want publish your site
 5)	Test it with a commit.
 
 
-Understanding the jobs:
+--->Understanding the jobs:
 
 1)Build-Job:
 
@@ -79,7 +79,7 @@ SLACK_WEBHOOK - The url of your webhook on slack
 NOTE: You can visit the webpage at http://tense-fire.surge.sh/
 ![Screenshot (316)](https://user-images.githubusercontent.com/46739055/93215825-8e197c00-f784-11ea-8cd5-bbac7a0b8c3a.png)
 
-Understanding the other tokens of the workflow : (You need to save all these in secrets of your repo)
+---->> Understanding the other tokens of the workflow : (You need to save all these in secrets of your repo)
 
 JIRA_TOKEN:
 1)Log in to https://id.atlassian.com/manage/api-tokens.
@@ -95,7 +95,7 @@ E-mail with which you have created Jira account.
 
 SONAR_TOKEN :
 
-To generate a token, to go User > My Account > Security. Your existing tokens are listed here, each with a Revoke button.
+To generate a token, to go User > My Account > Security (on your sonar account) Your existing tokens are listed here, each with a Revoke button.
 
 The form at the bottom of the page allows you to generate new tokens. Once you click the Generate button, you will see the token value. Copy it immediately; once you dismiss the 
 
@@ -104,7 +104,7 @@ notification you will not be able to retrieve it.
 GITHUB_TOKEN:
 It will be generated automatically.
 
-Triggering GitHub Actions Using Postman
+---->>>  Triggering GitHub Actions Using Postman
 
 1)In your workflow yml file, you need to add a trigger for the on key that says that the workflow will accept repository dispatches.
 
@@ -112,15 +112,23 @@ Triggering GitHub Actions Using Postman
 
 (To generate personal access token -https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/creating-a-personal-access-token)
 
+![1](https://user-images.githubusercontent.com/46739055/94343196-28ef4180-0034-11eb-83ef-9f1bf67cff1b.PNG)
+
 3)Once this environment is set up, you can now create a new collection of requests that will trigger your GitHub Actions workflows. To use the token that is a part of your 
 
 environment, make sure your environment is selected in the upper right hand corner of your application, and then add the token to the Bearer Authorization of your request.
 
+![2](https://user-images.githubusercontent.com/46739055/94343199-2d1b5f00-0034-11eb-90e1-e33b08c4ae98.PNG)
+
 4)Next set the appropriate headers.
+
+![3](https://user-images.githubusercontent.com/46739055/94343201-30164f80-0034-11eb-98b4-b5c8391da420.PNG)
 
 5)You can now set the appropriate payload for your dispatch and send the request.
 
 (Notice that the endpoint is: https://api.github.com/repos/:owner/:repo/dispatches)
+
+![4](https://user-images.githubusercontent.com/46739055/94343204-3278a980-0034-11eb-9870-65e11c9d85f7.PNG)
 
 Congratulations! Your manual button to trigger your GitHub Actions workflow has successfully been setup.
 
