@@ -1,7 +1,9 @@
 # Website to surge via Github Actions!
 
 
-This will help you to build , test and deploy your website to surge via Github actions and notify you on Email and Slack.
+This will help you to build , test and deploy your website to surge via Github actions and notify you on Email and Slack and integration with Postman and Jira is also present.
+
+##### (API TESTING IS ALSO SHOWN )
 
 The website used here is a basic website build with Gatsby Framework. Follow the below link:
 
