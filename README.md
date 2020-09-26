@@ -1,4 +1,4 @@
---->Website to surge via Github Actions!
+# Website to surge via Github Actions!
 
 
 This will help you to build , test and deploy your website to surge via Github actions and notify you on Email and Slack.
@@ -10,7 +10,7 @@ https://www.gatsbyjs.com/docs/quick-start/
 When you have made the JS app you can build it to a static HTML website with command “gatsby build”.
 
 
-Getting started with surge: 
+## Getting started with surge: 
 
 (Follow this link to install surge to your machine and after that run the command “surge” in the project folder made by gatsby)
 
@@ -34,7 +34,7 @@ SURGE_DOMAIN -> The domain you want publish your site
 5)	Test it with a commit.
 
 
---->Understanding the jobs:
+# Understanding the jobs:
 
 1)Build-Job:
 
@@ -79,7 +79,7 @@ SLACK_WEBHOOK - The url of your webhook on slack
 NOTE: You can visit the webpage at http://tense-fire.surge.sh/
 ![Screenshot (316)](https://user-images.githubusercontent.com/46739055/93215825-8e197c00-f784-11ea-8cd5-bbac7a0b8c3a.png)
 
----->> Understanding the other tokens of the workflow : (You need to save all these in secrets of your repo)
+# Understanding the other tokens of the workflow : (You need to save all these in secrets of your repo)
 
 JIRA_TOKEN:
 1)Log in to https://id.atlassian.com/manage/api-tokens.
@@ -104,7 +104,7 @@ notification you will not be able to retrieve it.
 GITHUB_TOKEN:
 It will be generated automatically.
 
----->>>  Triggering GitHub Actions Using Postman
+# Triggering GitHub Actions Using Postman
 
 1)In your workflow yml file, you need to add a trigger for the on key that says that the workflow will accept repository dispatches.
 
