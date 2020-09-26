@@ -120,21 +120,43 @@ jobs:
       - run:  sudo apt install curl
       - run: curl -Is http://www.google.com | head -n 1
 
- API-Test:
+ create-file:
     runs-on: ubuntu-latest
-    name: Api-test
     steps:
+      # Create check run
       - uses: octokit/request-action@v2.x
-        id: get_latest_release
+        id: create_check_run
         with:
-          route: GET /repos/:repository/releases/latest
+          route: POST /repos/:repository/check-runs
           repository: ${{ github.repository }}
           mediaType: | # The | is significant!
             previews: 
               - antiope
+          name: "Test check run"
+          head_sha: ${{ github.sha }}
+          output: | # The | is significant!
+            title: Test check run title
+            summary: A summary of the test check run
+            images:
+              - alt: Test image
+                image_url: https://octodex.github.com/images/jetpacktocat.png
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - run: "echo latest release: ${{ steps.get_latest_release.outputs.data }}"
+
+      # Update check run to completed, succesful status
+      - uses: octokit/request-action@v2.x
+        id: update_check_run
+        with:
+          route: PATCH /repos/:repository/check-runs/:check_run_id
+          repository: ${{ github.repository }}
+          mediaType: | # The | is significant!
+            previews: 
+              - antiope
+          check_run_id: ${{ fromJson(steps.create_check_run.outputs.data).id }}
+          conclusion: "success"
+          status: "completed"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
  
  Export-postman-Data:
     runs-on: ubuntu-latest
