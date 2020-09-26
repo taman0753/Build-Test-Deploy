@@ -122,6 +122,7 @@ jobs:
 
  API-testing:
     runs-on: ubuntu-latest
+    needs: [Postdeploy-Testing]
     steps:
       # Create check run
       - uses: octokit/request-action@v2.x
@@ -135,8 +136,8 @@ jobs:
           name: "Test check run"
           head_sha: ${{ github.sha }}
           output: | # The | is significant!
-            title: Test check run title
-            summary: A summary of the test check run
+            title: API Test Results
+            summary: An image just for fun.
             images:
               - alt: Test image
                 image_url: https://octodex.github.com/images/jetpacktocat.png
