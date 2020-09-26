@@ -129,6 +129,9 @@ jobs:
         with:
           route: GET /repos/:repository/releases/latest
           repository: ${{ github.repository }}
+          mediaType: | # The | is significant!
+            previews: 
+              - antiope
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: "echo latest release: ${{ steps.get_latest_release.outputs.data }}"
