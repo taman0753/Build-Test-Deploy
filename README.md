@@ -79,7 +79,7 @@ SLACK_WEBHOOK - The url of your webhook on slack
 NOTE: You can visit the webpage at http://tense-fire.surge.sh/
 ![Screenshot (316)](https://user-images.githubusercontent.com/46739055/93215825-8e197c00-f784-11ea-8cd5-bbac7a0b8c3a.png)
 
-Understanding the tokens: (You need to save all these in secrets of your repo)
+Understanding the other tokens of the workflow : (You need to save all these in secrets of your repo)
 
 JIRA_TOKEN:
 1)Log in to https://id.atlassian.com/manage/api-tokens.
@@ -103,6 +103,29 @@ notification you will not be able to retrieve it.
 
 GITHUB_TOKEN:
 It will be generated automatically.
+
+Triggering GitHub Actions Using Postman
+
+1)In your workflow yml file, you need to add a trigger for the on key that says that the workflow will accept repository dispatches.
+
+2)The first step is to create a new environment in Postman to store your personal access token.
+
+(To generate personal access token -https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/creating-a-personal-access-token)
+
+3)Once this environment is set up, you can now create a new collection of requests that will trigger your GitHub Actions workflows. To use the token that is a part of your 
+
+environment, make sure your environment is selected in the upper right hand corner of your application, and then add the token to the Bearer Authorization of your request.
+
+4)Next set the appropriate headers.
+
+5)You can now set the appropriate payload for your dispatch and send the request.
+
+(Notice that the endpoint is: https://api.github.com/repos/:owner/:repo/dispatches)
+
+Congratulations! Your manual button to trigger your GitHub Actions workflow has successfully been setup.
+
+
+
 
 
 
