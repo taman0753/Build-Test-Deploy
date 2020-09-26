@@ -93,6 +93,17 @@ URL of your Jira account. (eg: https://example.atlassian.net/)
 JIRA_USER_EMAIL:
 E-mail with which you have created Jira account.
 
+SONAR_TOKEN :
+
+To generate a token, to go User > My Account > Security. Your existing tokens are listed here, each with a Revoke button.
+
+The form at the bottom of the page allows you to generate new tokens. Once you click the Generate button, you will see the token value. Copy it immediately; once you dismiss the 
+
+notification you will not be able to retrieve it.
+
+GITHUB_TOKEN:
+It will be generated automatically.
+
 
 
 
