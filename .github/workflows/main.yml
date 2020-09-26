@@ -122,7 +122,7 @@ jobs:
  
  Export-postman Data:
     runs-on: ubuntu-latest
-    name: Postman Data
+    name: PostmanData
     steps:
       - uses: actions/checkout@master
       
