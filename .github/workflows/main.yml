@@ -120,7 +120,7 @@ jobs:
       - run:  sudo apt install curl
       - run: curl -Is http://www.google.com | head -n 1
  
- Export-postman Data:
+ Export-postman-Data:
     runs-on: ubuntu-latest
     name: PostmanData
     steps:
