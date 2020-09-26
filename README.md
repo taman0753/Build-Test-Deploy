@@ -79,5 +79,21 @@ SLACK_WEBHOOK - The url of your webhook on slack
 NOTE: You can visit the webpage at http://tense-fire.surge.sh/
 ![Screenshot (316)](https://user-images.githubusercontent.com/46739055/93215825-8e197c00-f784-11ea-8cd5-bbac7a0b8c3a.png)
 
+Understanding the tokens: (You need to save all these in secrets of your repo)
+
+JIRA_TOKEN:
+1)Log in to https://id.atlassian.com/manage/api-tokens.
+2)Click Create API token.
+3)From the dialog that appears, enter a memorable and concise Label for your token and click Create.
+4)Click Copy to clipboard, then paste the token to your script, or elsewhere to save
+
+JIRA_BASE_URL: 
+URL of your Jira account. (eg: https://example.atlassian.net/)
+
+JIRA_USER_EMAIL:
+E-mail with which you have created Jira account.
+
+
+
 
 
