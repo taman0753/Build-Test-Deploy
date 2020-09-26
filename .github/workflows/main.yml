@@ -119,9 +119,23 @@ jobs:
           node-version: 14
       - run:  sudo apt install curl
       - run: curl -Is http://www.google.com | head -n 1
+
+ API-Test:
+    runs-on: ubuntu-latest
+    name: Api-test
+    steps:
+      - uses: octokit/request-action@v2.x
+        id: get_latest_release
+        with:
+          route: GET /repos/:repository/releases/latest
+          repository: ${{ github.repository }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - run: "echo latest release: ${{ steps.get_latest_release.outputs.data }}"
  
  Export-postman-Data:
     runs-on: ubuntu-latest
+    needs: [Postdeploy-Testing]
     name: PostmanData
     steps:
       - uses: actions/checkout@master
