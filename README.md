@@ -103,11 +103,11 @@ The form at the bottom of the page allows you to generate new tokens. Once you c
 
 notification you will not be able to retrieve it.
 
-### Also you will need to setup 
+##### Also you will need to setup 
 
-### sonar.organization=<name of organization>
+##### sonar.organization=name of organization
 
-### sonar.projectKey=<project-key>  in your repo in a file "sonar-project.properties"
+##### sonar.projectKey=project-key  in your repo in a file "sonar-project.properties"
 
 ### GITHUB_TOKEN:
 It will be generated automatically.
