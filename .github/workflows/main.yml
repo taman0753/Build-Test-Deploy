@@ -6,9 +6,9 @@ on:
   push:
     branches: 
       - master
-  schedule:
-    - cron: '0 7 * * *'
-    - cron: '0 21 * * *'
+  #schedule:
+   # - cron: '0 7 * * *'
+   #  - cron: '0 21 * * *'
 jobs:
  Build-job:
     runs-on: ubuntu-latest
